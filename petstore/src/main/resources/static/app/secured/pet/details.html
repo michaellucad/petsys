@@ -1,0 +1,35 @@
+<br/>
+<div ng-init="init()">
+<table class="table table-bordered">
+  <tbody>
+      <tr>
+        <td style="textAlign:left;width:50%">Name</td>
+        <td style="textAlign:left;width:50%">{{::selectedPet.name}}</td>
+      </tr>
+      <tr>
+        <td style="textAlign:left;width:50%">Tags</td>
+        <td style="textAlign:left;width:50%">{{::selectedPet.tags}}</td>
+      </tr>
+      <tr>
+        <td style="textAlign:left;width:50%">Category</td>
+        <td style="textAlign:left;width:50%">{{::selectedPet.category}}</td>
+      </tr>
+      <tr>
+        <td style="textAlign:left;width:50%">Photo</td>
+        <td style="textAlign:left;width:50%"><img height="100" ng-src="/images/{{::selectedPet.photoUrls}}"/></td>
+      </tr>
+      <tr>
+        <td style="textAlign:left;width:50%">Status</td>
+        <td style="textAlign:left;width:50%">{{::selectedPet.status}}</td>
+      </tr>
+      <tr>
+        <td style="textAlign:left;width:100%" colspan="2">
+        	<a ng-if="appData.roles[0]=='ROLE_ADMIN'" href="#" ng-click="deletePet()">delete</a>
+		</td>
+       
+      </tr>
+  </tbody>
+</table>
+
+</div> 
+

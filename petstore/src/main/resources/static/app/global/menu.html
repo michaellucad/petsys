@@ -1,0 +1,7 @@
+
+<div>
+ <ul class="nav nav-tabs" ng-controller="HeadController">
+  <li ng-class="{active: isActive('/secured/pet')}"><a href="/app/app.html#/secured/pet">Pet List</a></li>
+  <li ng-if="appData.roles[0]=='ROLE_ADMIN'" ng-class="{active: isActive('/secured/addPet')}"><a href="/app/app.html#/secured/addPet">Add Pet</a></li>
+ </ul>
+</div>

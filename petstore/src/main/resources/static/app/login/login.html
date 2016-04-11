@@ -1,0 +1,16 @@
+<div style="min-height:5px"></div>
+<div ng-init="init()">
+ <div class="row">
+   <div class="col-sm-4">Login ID:</div>
+   <div class="col-sm-4"><input ng-model="appData.loginForm.loginId" autofocus/> <br/></div>
+  </div>
+ <div class="row"><div class="col-sm-8">&nbsp;</div></div>
+ <div class="row">
+  <div class="col-sm-4">Password: </div>
+  <div class="col-sm-4"><input ng-model="appData.loginForm.password" type="password"/> <br/></div>
+ </div>
+ <div class="row"><div class="col-sm-8">&nbsp;</div></div>
+ <div class="row">
+  <div class="col-sm-8"><button  ng-click="login()">Submit</button></div>
+ </div>
+</div>

@@ -1,0 +1,74 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.0.RELEASE")
+        // classpath("org.springframework:springloaded:1.2.1.BUILD-SNAPSHOT")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+version = '1.0'
+
+processResources.destinationDir = compileJava.destinationDir
+compileJava.dependsOn processResources
+
+jar {
+    baseName = 'petstore'
+    version =  version
+}
+
+war {
+    baseName = 'petstore'
+    version =  version
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven { url "http://repo.spring.io/libs-snapshot" }
+    maven { url "http://repo.spring.io/milestone" }
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+}
+configurations {
+	providedRuntime
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.webjars:jquery:2.1.1")
+    testCompile("junit:junit")
+    compile group: "commons-io", name: "commons-io", version: "2.0.1"
+    compile group: "commons-lang", name: "commons-lang", version: "2.2"
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+}
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.1'
+}
+
+task t3() <<{
+    println "t3"
+}
+task t1() <<{
+    println "t1"
+}
+task t4() <<{
+    println "t4"
+}
+task t2() <<{
+    println "t2"
+}
+
+t4.dependsOn t3
+t3.dependsOn t2
+t2.dependsOn t1

@@ -1,0 +1,43 @@
+<br/>
+<div ng-init="init()" ng-form="addPetForm">
+<table class="table table-bordered table-striped">
+  <tbody>
+      <tr>
+        <td style="textAlign:left;width:30%">Name</td>
+        <td style="textAlign:left;width:70%"><input name="name" ng-model="name" required/>
+        	<div ng-show="addPetForm.name.$error.required">Please enter Name</div>
+        </td>
+      </tr>
+      <tr>
+        <td style="textAlign:left;width:30%">Tags</td>
+        <td style="textAlign:left;width:70%"><input name="tags" ng-model="tags" required/>
+        	<div ng-show="addPetForm.tags.$error.required">Please enter Tags</div>
+        </td>
+      </tr>
+      <tr>
+        <td style="textAlign:left;width:30%">Category</td>
+        <td style="textAlign:left;width:70%"><input ng-model="category"/></td>
+      </tr>
+      <tr>
+        <td style="textAlign:left;width:30%">Photo</td>
+        <td style="textAlign:left;width:70%"><input ng-model="photoUrls" required/></td>
+      </tr>
+      <tr>
+        <td style="textAlign:left;width:30%">Status</td>
+        <td style="textAlign:left;width:70%">
+        	<select ng-model="status">
+        		<option value="available">available</option>
+        		<option value="unavailable">unavailable</option>
+        	</select>
+		</td>
+      </tr>
+      <tr>
+        <td style="textAlign:left;width:50%" colspan="2">
+        	<button ng-click="addPet()" ng-disabled="!addPetForm.tags.$valid || !addPetForm.name.$valid">Add</button>
+		</td>
+       
+      </tr>
+  </tbody>
+</table>
+</div> 
+
